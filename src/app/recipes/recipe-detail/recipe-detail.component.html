@@ -14,15 +14,15 @@
       <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu" style="cursor: pointer">
         <li>
-          <a href="#" (click)="onSelectToShoppingList()"> To Shopping List</a>
+          <a (click)="onSelectToShoppingList()"> To Shopping List</a>
         </li>
         <li>
-          <a href="#"> Edit Recipe</a>
+          <a (click)="onEditRecipe()"> Edit Recipe</a>
         </li>
         <li>
-          <a href="#"> Delete Recipe</a>
+          <a> Delete Recipe</a>
         </li>
       </ul>
     </div>
