@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service';
+import { Response } from '@angular/http';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +14,27 @@ export class HeaderComponent implements OnInit {
   // onSelect(feature: string){
   //   this.featureSelected.emit(feature);
   // }
-  constructor() { }
+  constructor(private dataStorageService: DataStorageService,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
+
+  onSaveData(){
+    this.dataStorageService.storeRecipes().
+      subscribe(
+        (response:Response) => {
+          console.log(response);
+        }
+      );
+  }
+
+  onGetData(){
+    this.dataStorageService.getRecipes();
+  }
+
+  onLogout(){
+    this.authService.logOut();
+  }
+
 }
