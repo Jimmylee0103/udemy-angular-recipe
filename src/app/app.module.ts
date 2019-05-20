@@ -3,40 +3,33 @@ import { NgModule } from '@angular/core';
 // import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DropdownDirective } from './shared/dropdown.directive';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { RecipeService } from './recipes/recipe.service';
-import { DataStorageService } from './shared/data-storage.service';
 import { HttpModule } from '@angular/http';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
-import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth-guard.service';
-import { RecipesModule } from './recipes/recipe.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpModule,
-    RecipesModule
+    AppRoutingModule,
+    SharedModule,
+    CoreModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
